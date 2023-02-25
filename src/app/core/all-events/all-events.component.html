@@ -1,0 +1,449 @@
+
+
+
+
+
+
+
+
+
+<div class="main ">
+  
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://thumbs.dreamstime.com/b/athletic-man-training-biceps-gym-to-use-as-banner-athletic-muscular-man-training-biceps-dumbbells-gym-to-use-as-118413845.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-family: Brush Script MT;font-size: 167px;">Our Upcoming Events</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/blessure-douleurs-epaule-du-nageur-1024x684.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-family: Brush Script MT;font-size: 167px;">Our Upcoming Events</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../../../assets/gros-plan-chaussures-courant (1).png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="font-family: Brush Script MT;font-size: 167px; " >Our Upcoming Events</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+    
+    <div class="container">
+        
+        <select class="form-select form-select-lg mt-5" aria-label=".form-select-lg example">
+            <option selected>Select your sport Category</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+       
+        
+    </div>
+    <div class="container">
+        <ul class="cards" >
+            <li class="cards_item" >
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <!-- Button trigger modal -->
+                  
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Participate
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- **********************************Model contet****************************** -->
+
+
+        <form>
+          <div class="form-group mb-3">
+            <label for="formGroupExampleInput">Event Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+          </div>
+          <div style="    display: flex;
+          flex-direction: column;">
+          <label for="start">date:</label>
+
+          <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+            </div>
+          <div class="form-group mb-3">
+            <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+            <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                 border-radius: 8px;
+                                 height: 36px;
+                                 border-color: #d6cfcf;
+                                 margin-top: -8px;">
+          </div>
+          
+        </form>
+
+
+
+
+
+        <!-- ********************************************************************************* -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+                  
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=5"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Participate
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- **********************************Model contet****************************** -->
+                  
+                  
+                          <form>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput">Event Name</label>
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+                            </div>
+                            <div style="    display: flex;
+                            flex-direction: column;">
+                            <label for="start">date:</label>
+                  
+                            <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+                              </div>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+                              <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                   border-radius: 8px;
+                                                   height: 36px;
+                                                   border-color: #d6cfcf;
+                                                   margin-top: -8px;">
+                            </div>
+                            
+                          </form>
+                  
+                  
+                  
+                  
+                  
+                          <!-- ********************************************************************************* -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=11"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Participate
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- **********************************Model contet****************************** -->
+                  
+                  
+                          <form>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput">Event Name</label>
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+                            </div>
+                            <div style="    display: flex;
+                            flex-direction: column;">
+                            <label for="start">date:</label>
+                  
+                            <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+                              </div>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+                              <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                   border-radius: 8px;
+                                                   height: 36px;
+                                                   border-color: #d6cfcf;
+                                                   margin-top: -8px;">
+                            </div>
+                            
+                          </form>
+                  
+                  
+                  
+                  
+                  
+                          <!-- ********************************************************************************* -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=14"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Participate
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- **********************************Model contet****************************** -->
+                  
+                  
+                          <form>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput">Event Name</label>
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+                            </div>
+                            <div style="    display: flex;
+                            flex-direction: column;">
+                            <label for="start">date:</label>
+                  
+                            <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+                              </div>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+                              <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                   border-radius: 8px;
+                                                   height: 36px;
+                                                   border-color: #d6cfcf;
+                                                   margin-top: -8px;">
+                            </div>
+                            
+                          </form>
+                  
+                  
+                  
+                  
+                  
+                          <!-- ********************************************************************************* -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=17"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Participate
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- **********************************Model contet****************************** -->
+                  
+                  
+                          <form>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput">Event Name</label>
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+                            </div>
+                            <div style="    display: flex;
+                            flex-direction: column;">
+                            <label for="start">date:</label>
+                  
+                            <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+                              </div>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+                              <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                   border-radius: 8px;
+                                                   height: 36px;
+                                                   border-color: #d6cfcf;
+                                                   margin-top: -8px;">
+                            </div>
+                            
+                          </form>
+                  
+                  
+                  
+                  
+                  
+                          <!-- ********************************************************************************* -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="cards_item">
+              <div class="card">
+                <div class="card_image"><img src="https://picsum.photos/500/300/?image=2"></div>
+                <div class="card_content">
+                  <h2 class="card_title" style=" color: #272727;">Event Name</h2>
+                  <p class="card_text" style=" color: #272727;">Event date&time</p>
+                  <p class="card_text" style=" color: #272727;">Location</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Participate
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Registration</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- **********************************Model contet****************************** -->
+                  
+                  
+                          <form>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput">Event Name</label>
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+                            </div>
+                            <div style="    display: flex;
+                            flex-direction: column;">
+                            <label for="start">date:</label>
+                  
+                            <input type="date" id="birthday" name="birthday" style="border-radius: 4px;">
+                              </div>
+                            <div class="form-group mb-3">
+                              <label for="formGroupExampleInput2" class="mb-2"> Time</label>
+                              <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                   border-radius: 8px;
+                                                   height: 36px;
+                                                   border-color: #d6cfcf;
+                                                   margin-top: -8px;">
+                            </div>
+                            
+                          </form>
+                  
+                  
+                  
+                  
+                  
+                          <!-- ********************************************************************************* -->
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Add to my Calendar and participate</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+    </div>
+    
+</div>
+
+  
+  <script>
+    
+  </script>

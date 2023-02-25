@@ -1,0 +1,70 @@
+<section class="py-5 login" >
+
+    <section class="vh-100" >
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong">
+                <div class="card-body p-5 text-center">
+      
+                  <h3 class="mb-5 signin">Sign In</h3>
+      <form *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate >
+     
+      <div class="form-group user-box mb-4 ">
+        <label  for="username" class="form-label" style="color: white;">Email</label>
+
+        <input type="text" class="form-control form-control-lg" 
+        name="username"
+        [(ngModel)]="form.username"
+        required
+        #username="ngModel" />
+      </div>
+
+      <div class="form-group user-box mb-4">
+        <label class="form-label" for="password" style="margin-left: -149px;color: white;">Password</label>
+
+        <input  
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+      <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Login
+      </a>
+
+      </form>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</section>

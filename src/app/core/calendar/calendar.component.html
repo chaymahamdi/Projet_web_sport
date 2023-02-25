@@ -1,0 +1,79 @@
+<section class="py-5">
+
+  <div class="container pt-5">
+    <!-- <button> THIS BUTTON</button> -->
+    <!-- ******************** -->
+    <div class="forbutton mb-2">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Create Event
+      </button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Event Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group mb-3">
+                <label for="formGroupExampleInput">Event Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Event Name">
+              </div>
+              <div class="form-group mb-3">
+                <label for="formGroupExampleInput">Example label</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Club Name</option>
+                  <option value="1">Sup'com Junior Entreprise</option>
+                  <option value="2">IEEE</option>
+                  <option value="3">ACM</option>
+                  <option value="3">Team</option>
+                  <option value="3">NATEG</option>
+                  <option value="3">sup'foot</option>
+                  <option value="3">sup'basket</option>
+                  <option value="3">sup'event</option>
+                  <option value="3">enactus</option>
+                  <option value="3">Sup'Com Microsoft Club</option>
+                  <option value="3">Sup'music</option>
+
+                </select>
+              </div>
+              <div class="form-group mb-3">
+                <label for="formGroupExampleInput2" class="mb-2">Start Time</label>
+                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                     border-radius: 8px;
+                                     height: 36px;
+                                     border-color: #d6cfcf;
+                                     margin-top: -8px;">
+              </div>
+              <div class="form-group mb-3">
+                <label for="formGroupExampleInput2" class="mb-2">End Time</label>
+                <input type="time" id="appt" name="appt" min="09:00" max="18:00" required style="width: 100%;
+                                                                 border-radius: 8px;
+                                                                 height: 36px;
+                                                                 border-color: #d6cfcf;
+                                                                 margin-top: -8px;">
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ******************** -->
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+
+
+
+</section>
