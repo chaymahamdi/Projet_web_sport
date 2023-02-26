@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'http://localhost:8080/';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,15 +12,11 @@ export class EventService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   })
-  AddEvent(title: string, description: string, location: string,date: string, startTime: String ,endTime:String, categoryId: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      title,
-      description,
-      location,
-      date,
-      startTime,
-      endTime,
-      categoryId
-    }, { headers: this.headers });
+  
+  getEvents(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(AUTH_API + 'events',{headers});
   }
+
 }

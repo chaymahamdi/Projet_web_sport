@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryServiceService } from 'src/app/services/category-service.service';
 @Component({
   selector: 'app-add-event',
@@ -9,7 +10,7 @@ export class AddEventComponent implements OnInit {
 
   categories:any = [];
   
-  constructor(private categoryServiceService: CategoryServiceService) { }
+  constructor(private categoryServiceService: CategoryServiceService, private router:Router) { }
   form: any = {
     title: null,
     description: null,
@@ -42,6 +43,7 @@ export class AddEventComponent implements OnInit {
       
       next: response => {
         console.log(response);
+        this.router.navigate(['/events']);
       },
       error: err => {
         console.log(err);

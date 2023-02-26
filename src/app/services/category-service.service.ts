@@ -11,14 +11,7 @@ const AUTH_API = 'http://localhost:8080/';
 
 export class CategoryServiceService {
   
-  
-  // token: any = localStorage.getItem("auth-token");
-  token = window.sessionStorage.getItem("auth-token");
-  headers = new HttpHeaders({
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin':'*',
-    'Authorization': `Bearer ${this.token}`
-  })
+ 
   constructor(private http: HttpClient) { }
   getCategories(): Observable<any> {
     const token = localStorage.getItem('token');

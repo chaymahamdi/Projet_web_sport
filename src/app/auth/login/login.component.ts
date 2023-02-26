@@ -41,23 +41,4 @@ export class LoginComponent implements OnInit {
   });
   }
   
-  
-
- /* onsubmit(): void {
-    const { usernameOrEmail, password} = this.form;
-
-    this.authService.register(usernameOrEmail, password).subscribe({
-      next: data => {
-        console.log(data);
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    });
-  }
-  reloadPage(): void {
-    window.location.reload();
-  }*/
-
 }
