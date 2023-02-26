@@ -14,7 +14,7 @@ import com.example.backend_project.services.CategoryService;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+
 @RequestMapping("")
 public class CategoryController {
 
@@ -25,23 +25,15 @@ public class CategoryController {
 
     };
 
-    /*
-     * @GetMapping("categories")
-     * public ResponseEntity<List<Category>> getAllCategories() {
-     * List<Category> categories = categoryService.getAllCategories();
-     * return ResponseEntity.ok(categories);
-     * }
-     */
     @GetMapping("categories")
-    public ResponseEntity<?> getAllCategories() {
-
-        return ResponseEntity.ok("okey");
+    public ResponseEntity<List<Category>> getAllCategories() {
+        List<Category> categories = categoryService.getAllCategories();
+        return ResponseEntity.ok(categories);
     }
 
-    @PostMapping("api/auth/categories")
+    @PostMapping("categories")
     public ResponseEntity<?> addCategory(@RequestBody CategoryRequest request) {
         Category category = categoryService.addCategory(request);
         return ResponseEntity.status(201).body(category);
-
     }
 }

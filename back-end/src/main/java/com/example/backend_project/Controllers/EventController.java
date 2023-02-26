@@ -3,7 +3,6 @@ package com.example.backend_project.Controllers;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,8 +13,6 @@ import com.example.backend_project.Payload.EventRequest;
 import com.example.backend_project.services.EventService;
 
 @RestController
-@CrossOrigin("*")
-
 public class EventController {
     private final EventService eventService;
 
@@ -31,8 +28,10 @@ public class EventController {
 
     @PostMapping("/events")
     public ResponseEntity<?> addEvent(@RequestBody EventRequest request) {
+
         Event event = eventService.addEvent(request);
         return ResponseEntity.status(201).body(event);
+
     }
 
 }

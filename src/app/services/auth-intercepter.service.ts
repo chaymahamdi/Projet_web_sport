@@ -1,31 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable, from,lastValueFrom } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthIntercepterService {
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
 
-  
+  constructor(private authService: AuthService) { }
 
-  constructor(private authService: AuthService) {
-      }
-      intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-            return from(this.handleAccess(request, next));
-          }
-          private async handleAccess(request: HttpRequest<any>, next: HttpHandler): Promise<HttpEvent<any>> {
-                // Only add an access token to whitelisted origin
-                const allowedOrigins = ['http://localhost'];
-                if (allowedOrigins.some(url => request.urlWithParams.includes(url))) {
-                  const accessToken = await this.authService.token;
-                  request = request.clone({
-                    setHeaders: {
-                      Authorization: 'Bearer ' + accessToken
-                    }
-                  });
-                }
-                return await lastValueFrom(next.handle(request));
-              }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const token = this.authService.getToken();
+    if (token) {
+      const clonedReq = req.clone({
+        headers: req.headers.set('Authorization', 'Bearer ' + token)
+      });
+      return next.handle(clonedReq);
+    } else {
+      return next.handle(req);
+    }
+  }
 }

@@ -8,20 +8,20 @@ import { CategoryServiceService } from 'src/app/services/category-service.servic
 export class AddEventComponent implements OnInit {
 
   categories:any = [];
+  
+  constructor(private categoryServiceService: CategoryServiceService) { }
   form: any = {
     title: null,
     description: null,
-    location: null,
+    image:"image",
     date: null,
-    startTime:null,
+    startTime: null,
     endTime:null,
-    categoryId: null
-
+    location:null,
+    categoryId:null,
   };
-  constructor(private categoryServiceService: CategoryServiceService) { }
-
   ngOnInit(): void {
-    console.log("ok");
+    
     this.getCategories();
   }
 
@@ -36,6 +36,19 @@ export class AddEventComponent implements OnInit {
       }
     });
   }
+  onSubmit(): void {
+    console.log(this.form);
+    this.categoryServiceService.addEvent(this.form).subscribe({
+      
+      next: response => {
+        console.log(response);
+      },
+      error: err => {
+        console.log(err);
+      }
+  });
+  }
+  
 
 
 }

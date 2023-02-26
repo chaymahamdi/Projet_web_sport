@@ -11,55 +11,99 @@
                 <div class="form-content">
                     <div class="form-items">
                         <h3>add event</h3>
-                        <form >
+                        
+                        <form name="form"
+                        (ngSubmit)="f.form.valid && onSubmit()"
+                        #f="ngForm"
+                        novalidate >
     
                             <div class="col-md-12">
-                               <input class="form-control" type="text" name="name" placeholder="event name" required>
-                               <div class="valid-feedback">event name field is valid!</div>
-                               <div class="invalid-feedback">event name field cannot be blank!</div>
+                               <input class="form-control" type="text"
+                               name="title" 
+                               [(ngModel)]="form.title"
+                               placeholder="event name"
+                               #title="ngModel" 
+                               required>
+                               <div class="alert-danger" *ngIf="title.errors && f.submitted">
+                                <div *ngIf="title.errors['required']">Title is required</div>
+
+                              </div>
                             </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="text"
+                                name="description" 
+                                [(ngModel)]="form.description"
+                                placeholder="event name"
+                                #description="ngModel" 
+                                required>
+                                <div class="alert-danger" *ngIf="description.errors && f.submitted">
+                                 <div *ngIf="description.errors['required']">Description is required</div>
+ 
+                               </div>
+                             </div>
                             <p></p>
 
 
                             <div class="col-md-12">
-                                <input class="form-control" type="date" name="date" placeholder="jj/mm/aaaa" required>
-                                 <div class="valid-feedback">date field is valid!</div>
-                                 <div class="invalid-feedback">date field cannot be blank!</div>
+                                <input class="form-control" type="date" name="date" 
+                                [(ngModel)]="form.date"
+                                placeholder="jj/mm/aaaa"
+                                #date="ngModel"  
+                                required>
+                                <div class="alert-danger" *ngIf="date.errors && f.submitted">
+                                    <div *ngIf="date.errors['required']">Date is required</div>
+
+                                  </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="startTime" 
+                                [(ngModel)]="form.startTime"
+                                placeholder="HH:mm:ss"
+                                #startTime="ngModel"  
+                                required>
+                                <div class="alert-danger" *ngIf="startTime.errors && f.submitted">
+                                    <div *ngIf="startTime.errors['required']">startTime is required</div>
+
+                                  </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="endTime" 
+                                [(ngModel)]="form.endTime"
+                                placeholder="HH/mm:ss"
+                                #endTime="ngModel"  
+                                required>
+                                <div class="alert-danger" *ngIf="endTime.errors && f.submitted">
+                                    <div *ngIf="endTime.errors['required']">endTime is required</div>
+
+                                  </div>
                             </div>
     
-
                            <div class="col-md-12">
-                                <select class="form-select mt-3" required>
+                                <select class="form-select mt-3"
+                                name="categoryId"
+                                [(ngModel)]="form.categoryId"
+                                #categoryId="ngModel">
                                       <option  *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
                                       
                                </select>
-                                <div class="valid-feedback">You selected a sport!</div>
-                                <div class="invalid-feedback">Please select a sport!</div>
+                                
                            </div>
-                           
                            <div class="col-md-12">
-                            <input class="form-control" type="address" name="address" placeholder="Address" required>
-                             <div class="valid-feedback">Address field is valid!</div>
-                             <div class="invalid-feedback">Address field cannot be blank!</div>
-                           </div>
-                           <p></p>
-    
-    
-                           <div class="col-md-12">
-                              <input class="form-control" type="url" name="url" placeholder="url/fb website/..." required>
-                               <div class="valid-feedback">ururl field cannot be blank!</div>
-                           </div>
-    
-    
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                          <label class="form-check-label">I confirm that all data are correct</label>
-                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                            <input class="form-control" type="text" name="location" 
+                            [(ngModel)]="form.location"
+                            placeholder="Location"
+                            #location="ngModel"  
+                            required>
+                            <div class="alert-danger" *ngIf="location.errors && f.submitted">
+                                <div *ngIf="location.errors['required']">Location is required</div>
+
+                              </div>
                         </div>
-                  
+                           
+                           
     
                             <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary">add</button>
+                                <button  type="submit" class="btn btn-primary">add</button>
                             </div>
                         </form>
                     </div>

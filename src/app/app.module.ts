@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
+import { JwtModule,JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AllEventsComponent } from './core/all-events/all-events.component';
 import { AddEventComponent } from './dashboard/add-event/add-event.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { AuthService } from 'src/app/services/auth.service';
+import { AuthInterceptor } from 'src/app/services/auth-intercepter.service';
 
 
 
@@ -45,10 +48,21 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     AppRoutingModule,
     FullCalendarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwtModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
