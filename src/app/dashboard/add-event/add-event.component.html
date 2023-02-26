@@ -21,7 +21,7 @@
                                <input class="form-control" type="text"
                                name="title" 
                                [(ngModel)]="form.title"
-                               placeholder="event name"
+                               placeholder="Event name"
                                #title="ngModel" 
                                required>
                                <div class="alert-danger" *ngIf="title.errors && f.submitted">
@@ -33,7 +33,7 @@
                                 <input class="form-control" type="text"
                                 name="description" 
                                 [(ngModel)]="form.description"
-                                placeholder="event name"
+                                placeholder="Description"
                                 #description="ngModel" 
                                 required>
                                 <div class="alert-danger" *ngIf="description.errors && f.submitted">
@@ -55,6 +55,7 @@
 
                                   </div>
                             </div>
+                            <p></p>
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="startTime" 
                                 [(ngModel)]="form.startTime"
@@ -66,10 +67,11 @@
 
                                   </div>
                             </div>
+                            <p></p>
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="endTime" 
                                 [(ngModel)]="form.endTime"
-                                placeholder="HH/mm:ss"
+                                placeholder="HH:mm:ss"
                                 #endTime="ngModel"  
                                 required>
                                 <div class="alert-danger" *ngIf="endTime.errors && f.submitted">
@@ -77,7 +79,7 @@
 
                                   </div>
                             </div>
-    
+                            <p></p>
                            <div class="col-md-12">
                                 <select class="form-select mt-3"
                                 name="categoryId"
