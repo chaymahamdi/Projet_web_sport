@@ -22,25 +22,30 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
 
   onSubmit(): void {
     const { username, password } = this.form;
 
-    this.authService.login(username, password).subscribe({
-      next: (response)  => {
-        localStorage.removeItem('token');
-        localStorage.setItem('token', response.accessToken);
-        this.isLoginFailed = false;
-        this.isLoggedIn = false;
-        
-        this.router.navigate(['']);
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
-    });
+    this.authService.login(username, password).subscribe(data => {
+      this.tokenStorage.saveToken(data.accessToken);
+      this.tokenStorage.saveUser(data);
+
+      this.isLoginFailed = false;
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+      
+      this.router.navigate(['']);
+    },
+    err => {
+      this.errorMessage = err.error.message;
+      this.isLoginFailed = true;
+    }
+    );
   }
 
   onsubmit(): void {
@@ -55,6 +60,9 @@ export class LoginComponent implements OnInit {
         /*this.isSignUpFailed = true;*/
       }
     });
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

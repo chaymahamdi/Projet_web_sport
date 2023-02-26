@@ -14,7 +14,7 @@ import com.example.backend_project.Payload.EventRequest;
 import com.example.backend_project.services.EventService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 
 public class EventController {
     private final EventService eventService;

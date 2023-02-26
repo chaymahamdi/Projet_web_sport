@@ -15,15 +15,15 @@ export class CategoryServiceService {
   
   
   // token: any = localStorage.getItem("auth-token");
-  /*token = window.sessionStorage.getItem("auth-token");*/
+  token = window.sessionStorage.getItem("auth-token");
   headers = new HttpHeaders({
     'Accept': 'application/json',
     'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Credentials':'true',
-    /*'Authorization': `Bearer ${this.token}`*/
+    'Authorization': `Bearer ${this.token}`
   })
   constructor(private http: HttpClient) { }
   getCategories(): Observable<any> {
-    return this.http.get<any>(AUTH_API + 'api/auth/categories', { headers: this.headers });
+    console.log(this.headers)
+    return this.http.get<any>(AUTH_API + 'categories',{headers: this.headers});
   }
 }

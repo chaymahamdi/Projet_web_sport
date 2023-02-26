@@ -1,7 +1,5 @@
 package com.example.backend_project.Security;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -9,9 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.backend_project.Models.User;
 import com.example.backend_project.Repositories.UserRepository;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -27,12 +22,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
                 .orElseThrow(() -> new UsernameNotFoundException(
                         "User not found with username or email: " + usernameOrEmail));
-        Set<GrantedAuthority> authorities = user
-                .getRoles()
-                .stream()
-                .map((role) -> new SimpleGrantedAuthority(role.getName().toString())).collect(Collectors.toSet());
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),
-                user.getPassword(),
-                authorities);
+        return UserDetailsImpl.build(user);
     }
 }

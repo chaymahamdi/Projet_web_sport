@@ -13,13 +13,17 @@ import com.example.backend_project.Models.Role;
 import com.example.backend_project.Models.User;
 import com.example.backend_project.Payload.LoginRequest;
 import com.example.backend_project.Payload.RegisterRequest;
+import com.example.backend_project.Payload.JwtResponse;
 import com.example.backend_project.Repositories.RoleRepository;
 import com.example.backend_project.Repositories.UserRepository;
 import com.example.backend_project.Security.JwtTokenProvider;
+import com.example.backend_project.Security.UserDetailsImpl;
 import com.example.backend_project.services.AuthService;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -43,15 +47,23 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String login(LoginRequest loginDto) {
+    public JwtResponse login(LoginRequest loginDto) {
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDto.getUsernameOrEmail(), loginDto.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtTokenProvider.generateToken(authentication);
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
+		List<String> roles = userDetails.getAuthorities().stream()
+				.map(item -> item.getAuthority())
+				.collect(Collectors.toList());
         
-        return token;
+        return new JwtResponse(token, 
+        userDetails.getId(), 
+        userDetails.getUsername(), 
+        userDetails.getEmail(), 
+        roles);
     }
 
     @Override

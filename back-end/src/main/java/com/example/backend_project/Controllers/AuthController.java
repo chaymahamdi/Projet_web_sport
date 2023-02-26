@@ -8,15 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backend_project.Payload.JWTAuthResponse;
+import com.example.backend_project.Payload.JwtResponse;
 import com.example.backend_project.Payload.LoginRequest;
 import com.example.backend_project.Payload.RegisterRequest;
 import com.example.backend_project.services.AuthService;
 
 @RestController
 @CrossOrigin
-// @CrossOrigin(origins = "http://localhost:8080")
-
 @RequestMapping("/api/auth")
 public class AuthController {
 
@@ -28,13 +26,9 @@ public class AuthController {
 
     // Build Login REST API
     @PostMapping("/signin")
-    public ResponseEntity<JWTAuthResponse> login(@RequestBody LoginRequest loginDto) {
-        String token = authService.login(loginDto);
-
-        JWTAuthResponse jwtAuthResponse = new JWTAuthResponse();
-        jwtAuthResponse.setAccessToken(token);
-
-        return ResponseEntity.ok(jwtAuthResponse);
+    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest loginDto) {
+        JwtResponse response = authService.login(loginDto);
+        return ResponseEntity.ok(response);
     }
 
     // Build Register REST API
